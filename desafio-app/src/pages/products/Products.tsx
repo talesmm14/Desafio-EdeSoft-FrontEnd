@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ProductList } from "../components/ProductList";
+import { ProductList } from "./components/ProductList";
 
-export function Products() {
+function Products() {
     return (
         <div>
           <h1>Produtos</h1>
@@ -11,3 +11,5 @@ export function Products() {
         </div>
       );
 }
+
+export default Products;

@@ -1,4 +1,4 @@
-export function ProductCreate() {
+export function ModalAlert() {
     return (
       <div>
       </div>

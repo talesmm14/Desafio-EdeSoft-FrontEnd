@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
-import { Product } from "../models/product";
+import { Product } from "../../../models/product";
 
-export function ProductCard({ product }: { product: Product }) {
+
+interface ProductCardProps {
+    product: Product
+}
+
+
+export function ProductCard({ product }:ProductCardProps) {
     return (
         <Link to={`/products/${product.id}`}>
             <div className="card">
