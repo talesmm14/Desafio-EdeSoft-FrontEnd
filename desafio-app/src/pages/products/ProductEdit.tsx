@@ -1,24 +1,17 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Product } from "../../models/product";
-import api from "../../services/api";
+import { useAppSelector } from "../../hooks/hooks";
+import { getProductById } from "../../store/reducers/productSlice";
+import { ProductForm } from "./components/ProductForm";
 
 export function ProductEdit() {
-  
+
   const { productId } = useParams<{ productId: string }>();
-  const [product, setProduct] = useState<Product | null>(null);
+  const product = useAppSelector((state) => getProductById(state, productId));
 
-  useEffect(() => {
-    api.get(`products/${productId}`)
-    .then((response: { data: any; }) => setProduct(response.data))
-    .catch((err: any) => console.log(err))
-  }, [productId])
-
-  if (!product)
-    return <div>Carregando Produto...</div>
 
   return (
     <div>
+      <ProductForm product={product}></ProductForm>
     </div>
   );
 }
